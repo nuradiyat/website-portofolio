@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('project_skill', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('project_id')
+                ->constrained()
+                ->cascadeOnDelete();
+            $table->foreignId('skill_id')
+                ->constrained()
+                ->cascadeOnDelete();
+            $table->primary([
+                'project_id',
+                'skill_id'
+            ]);
             $table->timestamps();
         });
     }
