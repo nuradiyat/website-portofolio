@@ -2,16 +2,21 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Experience;
 use Illuminate\Database\Seeder;
 
 class ExperienceSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        //
+        Experience::create([
+            'image' => 'experience/company.png',
+            'organization' => 'Universitas XYZ',
+            'position' => 'Web Developer',
+            'type' => 'Internship',
+            'start_date' => '2025-01-01',
+            'end_date' => '2025-06-30',
+            'description' => 'Mengembangkan sistem informasi berbasis Laravel.',
+        ]);
     }
 }

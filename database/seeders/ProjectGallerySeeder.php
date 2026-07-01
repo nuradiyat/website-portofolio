@@ -2,16 +2,29 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\ProjectGallery;
 use Illuminate\Database\Seeder;
 
 class ProjectGallerySeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        //
+        ProjectGallery::insert([
+            [
+                'project_id' => 1,
+                'image' => 'projects/gallery-1.jpg',
+                'caption' => 'Landing Page',
+            ],
+            [
+                'project_id' => 1,
+                'image' => 'projects/gallery-2.jpg',
+                'caption' => 'Dashboard Admin',
+            ],
+            [
+                'project_id' => 1,
+                'image' => 'projects/gallery-3.jpg',
+                'caption' => 'Project Detail',
+            ],
+        ]);
     }
 }

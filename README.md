@@ -4,7 +4,7 @@
 Website Portofolio Perofile😎😎😎
 You're ready to go! Visit the url in your browser, and login with:
 
--   **Username:** mnuradiyat@ngekos.com
+-   **Username:** admin@ngekos.com
 -   **Password:** admin
 
 
