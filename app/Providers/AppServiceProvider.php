@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Profile;
+use App\Models\SocialMedia;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,5 +23,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+        View::share('profile', Profile::first());
+
+        View::share(
+            'socialMedia',
+            SocialMedia::orderBy('display_order')->get()
+        );
     }
 }
