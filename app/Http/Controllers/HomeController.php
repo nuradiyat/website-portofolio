@@ -16,13 +16,13 @@ class HomeController extends Controller
     {
         $skills = Skill::all();
 
-        $projects = Project::latest()->take(6)->get();
+        $projects = Project::latest()->get();
 
-        $certificates = Certificate::latest()->take(6)->get();
+        $certificates = Certificate::latest()->get();
 
-        $experiences = Experience::latest()->take(6)->get();
+        $experiences = Experience::latest()->get();
 
-        $testimonials = Testimonial::latest()->take(6)->get();
+        $testimonials = Testimonial::latest()->get();
 
         return view('home', [
             'skills' => $skills,

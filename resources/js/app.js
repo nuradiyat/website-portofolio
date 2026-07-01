@@ -1,7 +1,7 @@
-import './bootstrap';
-// Tambahkan Alpine
+// Alpine
 import Alpine from 'alpinejs';
-// Tambahkan AOS
+
+// AOS
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 

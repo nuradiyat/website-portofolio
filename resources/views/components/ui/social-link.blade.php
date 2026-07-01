@@ -1,14 +1,29 @@
-@props(['social'])
+<a
+    href="{{ $social->url }}"
+    target="_blank"
+    class="flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 transition hover:border-blue-500 hover:bg-blue-500 hover:text-white">
 
-<a href="{{ $social->url }}" target="_blank" rel="noopener noreferrer"
-    class="flex h-11 w-11 items-center justify-center rounded-xl
-           border border-slate-700
-           text-slate-400
-           transition-all
-           hover:border-blue-500
-           hover:bg-blue-600
-           hover:text-white">
+    @switch(strtolower($social->platform))
 
-    <x-dynamic-component :component="$social->icon" class="h-5 w-5" />
+        @case('github')
+            <x-heroicon-o-code-bracket class="h-6 w-6"/>
+            @break
+
+        @case('linkedin')
+            <x-heroicon-o-user class="h-6 w-6"/>
+            @break
+
+        @case('instagram')
+            <x-heroicon-o-camera class="h-6 w-6"/>
+            @break
+
+        @case('email')
+            <x-heroicon-o-envelope class="h-6 w-6"/>
+            @break
+
+        @default
+            <x-heroicon-o-globe-alt class="h-6 w-6"/>
+
+    @endswitch
 
 </a>
