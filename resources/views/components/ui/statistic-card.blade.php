@@ -1,15 +1,23 @@
 @props(['label', 'value'])
 
 <div
-    class="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+    class="group rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-blue-500 hover:shadow-xl">
 
-    <h3 class="text-3xl font-bold text-blue-600">
+    @isset($icon)
+        <div class="mb-5 flex justify-center">
 
-        {{ $value }}
+            {{ $icon }}
+
+        </div>
+    @endisset
+
+    <h3 class="text-4xl font-extrabold text-slate-900">
+
+        {{ $value }}+
 
     </h3>
 
-    <p class="mt-2 text-sm text-slate-500">
+    <p class="mt-3 text-sm font-medium tracking-wide text-slate-500 uppercase">
 
         {{ $label }}
 
