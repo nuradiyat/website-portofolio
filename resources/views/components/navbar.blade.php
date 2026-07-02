@@ -1,115 +1,78 @@
 <header x-data="{ open: false }"
     class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/80 backdrop-blur-lg">
 
-    <div class="container mx-auto flex h-20 items-center justify-between px-6">
+    @php
+        $navLinks = [
+            ['label' => 'Home', 'id' => 'home'],
+            ['label' => 'About', 'id' => 'about'],
+            ['label' => 'Skills', 'id' => 'skills'],
+            ['label' => 'Projects', 'id' => 'projects'],
+            ['label' => 'Certificates', 'id' => 'certificates'],
+            ['label' => 'Experience', 'id' => 'experiences'],
+            ['label' => 'Contact', 'id' => 'contact'],
+        ];
+    @endphp
 
+    <div class="container mx-auto flex h-20 items-center justify-between px-4 sm:px-6">
         {{-- Logo --}}
-        <a href="{{ route('home') }}" class="flex items-center gap-3">
-
-            <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-600 text-lg font-bold text-white">
-
+        <a href="{{ route('home') }}" class="flex min-w-0 items-center gap-3">
+            <span
+                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-lg font-bold text-white">
                 MN
-
             </span>
 
-            <div class="hidden sm:block">
-
-                <h1 class="font-bold text-slate-900">
-
+            <div class="hidden min-w-0 sm:block">
+                <h1 class="truncate text-base font-bold text-slate-900 lg:text-lg">
                     {{ $profile->full_name }}
-
                 </h1>
-
-                <p class="text-sm text-slate-500">
-
+                <p class="truncate text-sm text-slate-500">
                     {{ $profile->profession }}
-
                 </p>
-
             </div>
-
         </a>
 
         {{-- Desktop Menu --}}
-        <nav class="hidden lg:flex items-center gap-8">
-
-            <a href="#home" class="font-medium text-slate-600 hover:text-blue-600 transition">
-                Home
-            </a>
-
-            <a href="#about" class="font-medium text-slate-600 hover:text-blue-600 transition">
-                About
-            </a>
-
-            <a href="#skills" class="font-medium text-slate-600 hover:text-blue-600 transition">
-                Skills
-            </a>
-
-            <a href="#projects" class="font-medium text-slate-600 hover:text-blue-600 transition">
-                Projects
-            </a>
-
-            <a href="#certificates" class="font-medium text-slate-600 hover:text-blue-600 transition">
-                Certificates
-            </a>
-
-            <a href="#experiences" class="font-medium text-slate-600 hover:text-blue-600 transition">
-                Experience
-            </a>
-
-            <a href="#contact" class="font-medium text-slate-600 hover:text-blue-600 transition">
-                Contact
-            </a>
-
+        <nav class="hidden items-center gap-7 lg:flex">
+            @foreach ($navLinks as $link)
+                <a href="{{ route('home') . '#' . $link['id'] }}"
+                    class="text-[15px] font-medium text-slate-600 transition hover:text-blue-600">
+                    {{ $link['label'] }}
+                </a>
+            @endforeach
         </nav>
 
         {{-- Right Side --}}
         <div class="flex items-center gap-3">
-
-            <x-button href="{{ Storage::url($profile->cv_file) }}" target="_blank" class="hidden lg:inline-flex">
-
-                Download CV
-
-            </x-button>
+            @if ($profile->cv_file)
+                <x-button href="{{ Storage::url($profile->cv_file) }}" target="_blank" class="hidden lg:inline-flex">
+                    Download CV
+                </x-button>
+            @endif
 
             {{-- Mobile Menu Button --}}
-            <button @click="open=!open" class="rounded-lg p-2 lg:hidden">
-
+            <button @click="open = !open" type="button"
+                class="inline-flex items-center justify-center rounded-xl p-2 text-slate-700 transition hover:bg-slate-100 lg:hidden"
+                aria-label="Toggle navigation">
                 <x-heroicon-o-bars-3 class="h-7 w-7" />
-
             </button>
-
         </div>
-
     </div>
 
     {{-- Mobile Menu --}}
-    <div x-show="open" x-transition class="border-t bg-white lg:hidden">
+    <div x-show="open" x-transition.origin.top x-cloak class="border-t border-slate-200 bg-white lg:hidden">
+        <nav class="container mx-auto flex flex-col px-4 py-4 sm:px-6">
+            @foreach ($navLinks as $link)
+                <a href="{{ route('home') . '#' . $link['id'] }}" @click="open = false"
+                    class="rounded-xl px-3 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:text-blue-600">
+                    {{ $link['label'] }}
+                </a>
+            @endforeach
 
-        <nav class="container mx-auto flex flex-col px-6 py-5">
-
-            <a href="#home" class="py-3">Home</a>
-
-            <a href="#about" class="py-3">About</a>
-
-            <a href="#skills" class="py-3">Skills</a>
-
-            <a href="#projects" class="py-3">Projects</a>
-
-            <a href="#certificates" class="py-3">Certificates</a>
-
-            <a href="#experiences" class="py-3">Experience</a>
-
-            <a href="#contact" class="py-3">Contact</a>
-
-            <x-button href="{{ Storage::url($profile->cv_file) }}" class="mt-5 justify-center">
-
-                Download CV
-
-            </x-button>
-
+            @if ($profile->cv_file)
+                <x-button href="{{ Storage::url($profile->cv_file) }}" target="_blank" class="mt-4 justify-center">
+                    Download CV
+                </x-button>
+            @endif
         </nav>
-
     </div>
-
 </header>

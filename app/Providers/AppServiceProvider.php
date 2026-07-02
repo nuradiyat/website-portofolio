@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Profile;
 use App\Models\SocialMedia;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -29,5 +30,7 @@ class AppServiceProvider extends ServiceProvider
             'socialMedia',
             SocialMedia::orderBy('display_order')->get()
         );
+
+        Carbon::setLocale('id');
     }
 }

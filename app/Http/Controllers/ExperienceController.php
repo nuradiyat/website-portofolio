@@ -6,10 +6,8 @@ use App\Models\Experience;
 
 class ExperienceController extends Controller
 {
-    public function index()
+    public function show(Experience $experience)
     {
-        return view('experiences', [
-            'experiences' => Experience::latest()->get(),
-        ]);
+        return view('experiences.show', compact('experience'));
     }
 }

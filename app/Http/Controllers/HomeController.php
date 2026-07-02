@@ -17,12 +17,13 @@ class HomeController extends Controller
         $skills = Skill::all();
 
         $projects = Project::latest()->get();
-
         $certificates = Certificate::latest()->get();
-
         $experiences = Experience::latest()->get();
-
         $testimonials = Testimonial::latest()->get();
+
+        $projectInitialLimit = 6;
+        $certificateInitialLimit = 6;
+        $experienceInitialLimit = 6;
 
         return view('home', [
             'skills' => $skills,
@@ -35,6 +36,16 @@ class HomeController extends Controller
             'certificateCount' => Certificate::count(),
             'experienceCount' => Experience::count(),
             'skillCount' => Skill::count(),
+
+            // limit awal section
+            'projectInitialLimit' => $projectInitialLimit,
+            'certificateInitialLimit' => $certificateInitialLimit,
+            'experienceInitialLimit' => $experienceInitialLimit,
+
+            // tombol toggle
+            'hasMoreProjects' => $projects->count() > $projectInitialLimit,
+            'hasMoreCertificates' => $certificates->count() > $certificateInitialLimit,
+            'hasMoreExperiences' => $experiences->count() > $experienceInitialLimit,
         ]);
     }
 }

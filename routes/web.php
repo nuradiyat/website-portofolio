@@ -22,6 +22,7 @@ Route::get('/projects/{project:slug}', [ProjectController::class, 'show'])->name
 Route::get('/certificates', [CertificateController::class, 'index'])->name('certificates');
 
 Route::get('/experiences', [ExperienceController::class, 'index'])->name('experiences');
+Route::get('/experiences/{experience}', [ExperienceController::class, 'show'])->name('experiences.show');
 
 Route::get('/testimonials', [TestimonialController::class, 'index'])->name('testimonials');
 
