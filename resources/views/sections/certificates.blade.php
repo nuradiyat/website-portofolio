@@ -5,13 +5,15 @@
             description="Berikut adalah sertifikat yang saya miliki dari pelatihan, kursus, dan sertifikasi kompetensi." />
 
         @if ($certificates->isNotEmpty())
-            <div class="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+            <div class="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
                 @foreach ($certificates as $certificate)
-                    <x-card.certificate-card :certificate="$certificate" />
+                    <div data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
+                        <x-card.certificate-card :certificate="$certificate" />
+                    </div>
                 @endforeach
             </div>
         @else
-            <div class="mt-16">
+            <div class="mt-14">
                 <x-ui.empty-state title="Belum ada sertifikat" description="Data sertifikat belum tersedia saat ini." />
             </div>
         @endif
