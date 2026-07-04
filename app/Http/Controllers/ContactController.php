@@ -8,12 +8,6 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    public function index()
-    {
-        return view('contact', [
-            'socialMedia' => SocialMedia::orderBy('display_order')->get(),
-        ]);
-    }
 
     public function store(Request $request)
     {

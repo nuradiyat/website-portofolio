@@ -1,12 +1,10 @@
 @props([
-    'for' => '',
+    'for' => null,
     'required' => false,
 ])
 
-<label for="{{ $for }}"
-    {{ $attributes->merge([
-        'class' => 'mb-2 block text-sm font-semibold text-slate-700',
-    ]) }}>
+<label @if ($for) for="{{ $for }}" @endif
+    {{ $attributes->class('mb-2 block text-sm font-semibold text-slate-800') }}>
     {{ $slot }}
 
     @if ($required)

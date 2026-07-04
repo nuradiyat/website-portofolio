@@ -14,35 +14,55 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $skills = Skill::all();
+        // =========================
+        // Konfigurasi limit section
+        // =========================
+        $projectInitialLimit = 6;
+        $certificateInitialLimit = 6;
+        $experienceInitialLimit = 6;
 
+        // =========================
+        // Data utama homepage
+        // =========================
+        $profile = Profile::first();
+        $socialMedia = SocialMedia::orderBy('display_order')->get();
+
+        $skills = Skill::orderBy('name')->get();
         $projects = Project::latest()->get();
         $certificates = Certificate::latest()->get();
         $experiences = Experience::latest()->get();
         $testimonials = Testimonial::latest()->get();
 
-        $projectInitialLimit = 6;
-        $certificateInitialLimit = 6;
-        $experienceInitialLimit = 6;
-
         return view('home', [
+            // =========================
+            // Data section
+            // =========================
+            'profile' => $profile,
+            'socialMedia' => $socialMedia,
             'skills' => $skills,
             'projects' => $projects,
             'certificates' => $certificates,
             'experiences' => $experiences,
             'testimonials' => $testimonials,
 
-            'projectCount' => Project::count(),
-            'certificateCount' => Certificate::count(),
-            'experienceCount' => Experience::count(),
-            'skillCount' => Skill::count(),
+            // =========================
+            // Statistik
+            // =========================
+            'projectCount' => $projects->count(),
+            'certificateCount' => $certificates->count(),
+            'experienceCount' => $experiences->count(),
+            'skillCount' => $skills->count(),
 
-            // limit awal section
+            // =========================
+            // Initial limit per section
+            // =========================
             'projectInitialLimit' => $projectInitialLimit,
             'certificateInitialLimit' => $certificateInitialLimit,
             'experienceInitialLimit' => $experienceInitialLimit,
 
-            // tombol toggle
+            // =========================
+            // Toggle button state
+            // =========================
             'hasMoreProjects' => $projects->count() > $projectInitialLimit,
             'hasMoreCertificates' => $certificates->count() > $certificateInitialLimit,
             'hasMoreExperiences' => $experiences->count() > $experienceInitialLimit,
