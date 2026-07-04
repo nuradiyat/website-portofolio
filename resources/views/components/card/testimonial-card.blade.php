@@ -1,39 +1,55 @@
-@props([
-    'testimonial',
-])
+@props(['testimonial'])
 
-<article
-    class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-2 hover:shadow-lg">
+@php
+    use Illuminate\Support\Str;
 
-    <x-heroicon-s-chat-bubble-left-right
-        class="mb-5 h-10 w-10 text-blue-600" />
+    $initials = Str::of($testimonial->name)
+        ->trim()
+        ->explode(' ')
+        ->filter()
+        ->map(fn($word) => Str::upper(Str::substr($word, 0, 1)))
+        ->take(2)
+        ->implode('');
+@endphp
 
-    <p class="leading-7 text-slate-600 italic">
+<article data-testimonial-card
+    class="flex h-full w-[280px] shrink-0 flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg sm:w-[320px] lg:w-[340px] xl:w-[360px]">
+    <div class="flex h-full flex-col">
+        {{-- Header --}}
+        <div class="flex items-start gap-4">
+            <div
+                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-bold text-blue-700">
+                {{ $initials }}
+            </div>
 
-        "{{ $testimonial->content }}"
+            <div class="min-w-0">
+                <h3 class="truncate text-lg font-semibold text-slate-900">
+                    {{ $testimonial->name }}
+                </h3>
 
-    </p>
+                @if ($testimonial->position || $testimonial->organization)
+                    <p class="mt-1 text-sm leading-6 text-slate-500">
+                        @if ($testimonial->position)
+                            {{ $testimonial->position }}
+                        @endif
 
-    <div class="mt-8">
+                        @if ($testimonial->position && $testimonial->organization)
+                            <span class="text-slate-400">at</span>
+                        @endif
 
-        <h4 class="font-bold text-slate-900">
+                        @if ($testimonial->organization)
+                            <span class="font-medium text-slate-700">{{ $testimonial->organization }}</span>
+                        @endif
+                    </p>
+                @endif
+            </div>
+        </div>
 
-            {{ $testimonial->name }}
-
-        </h4>
-
-        <p class="text-sm text-slate-500">
-
-            {{ $testimonial->position }}
-
-            @if($testimonial->company)
-
-                • {{ $testimonial->company }}
-
-            @endif
-
-        </p>
-
+        {{-- Message --}}
+        <div class="mt-5 flex-1">
+            <p class="text-[15px] leading-8 text-slate-600">
+                “{{ $testimonial->message }}”
+            </p>
+        </div>
     </div>
-
 </article>

@@ -19,7 +19,25 @@ class TestimonialSeeder extends Seeder
             ],
 
             [
-                'name' => 'Budi Pratama',
+                'name' => ' Pratama',
+                'position' => 'Project Manager',
+                'organization' => 'XYZ Digital',
+                'message' => 'Mampu bekerja sama dalam tim dan menyelesaikan project tepat waktu.',
+            ],
+            [
+                'name' => 'adi',
+                'position' => 'Project Manager',
+                'organization' => 'XYZ Digital',
+                'message' => 'Mampu bekerja sama dalam tim dan menyelesaikan project tepat waktu.',
+            ],
+            [
+                'name' => 'riyan',
+                'position' => 'Project Manager',
+                'organization' => 'XYZ Digital',
+                'message' => 'Mampu bekerja sama dalam tim dan menyelesaikan project tepat waktu.',
+            ],
+            [
+                'name' => 'wahyu',
                 'position' => 'Project Manager',
                 'organization' => 'XYZ Digital',
                 'message' => 'Mampu bekerja sama dalam tim dan menyelesaikan project tepat waktu.',
