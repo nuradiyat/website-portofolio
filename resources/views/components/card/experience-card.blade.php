@@ -61,7 +61,7 @@
                     Periode
                 </p>
                 <p class="mt-2 text-sm font-semibold text-slate-800 leading-6">
-                    {{ $periodStart }} — {{ $periodEnd }}
+                    {{ $periodStart }} - {{ $periodEnd }}
                 </p>
             </div>
 

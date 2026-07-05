@@ -1,29 +1,91 @@
-<a
-    href="{{ $social->url }}"
-    target="_blank"
-    class="flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 transition hover:border-blue-500 hover:bg-blue-500 hover:text-white">
+@props(['social'])
 
-    @switch(strtolower($social->platform))
+@php
+    $platform = strtolower(trim($social->platform ?? ''));
 
-        @case('github')
-            <x-heroicon-o-code-bracket class="h-6 w-6"/>
-            @break
+    /*
+    |--------------------------------------------------------------------------
+    | Mapping nama platform
+    |--------------------------------------------------------------------------
+    */
+    $iconMap = [
+        'github' => 'github',
+        'linkedin' => 'linkedin',
+        'instagram' => 'instagram',
+        'facebook' => 'facebook',
+        'twitter' => 'x',
+        'x' => 'x',
+        'youtube' => 'youtube',
+        'whatsapp' => 'whatsapp',
+        'telegram' => 'telegram',
+        'tiktok' => 'tiktok',
+        'discord' => 'discord',
+        'gitlab' => 'gitlab',
+        'dribbble' => 'dribbble',
+        'behance' => 'behance',
+        'medium' => 'medium',
+        'email' => 'gmail',
+        'gmail' => 'gmail',
+    ];
 
-        @case('linkedin')
-            <x-heroicon-o-user class="h-6 w-6"/>
-            @break
+    $iconName = $iconMap[$platform] ?? $platform;
 
-        @case('instagram')
-            <x-heroicon-o-camera class="h-6 w-6"/>
-            @break
+    /*
+    |--------------------------------------------------------------------------
+    | URL tujuan
+    |--------------------------------------------------------------------------
+    */
+    $url = $social->url;
 
-        @case('email')
-            <x-heroicon-o-envelope class="h-6 w-6"/>
-            @break
+    if (in_array($platform, ['email', 'gmail']) && $url && !str_starts_with($url, 'mailto:')) {
+        $url = 'mailto:' . $url;
+    }
 
-        @default
-            <x-heroicon-o-globe-alt class="h-6 w-6"/>
+    /*
+    |--------------------------------------------------------------------------
+    | Fallback CDN list
+    |--------------------------------------------------------------------------
+    | Urutan:
+    | 1. Simple Icons
+    | 2. Iconify
+    | 3. jsDelivr simple-icons
+    */
+    $iconSources = [
+        "https://cdn.simpleicons.org/{$iconName}",
+        "https://api.iconify.design/simple-icons:{$iconName}.svg",
+        "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/{$iconName}.svg",
+    ];
 
-    @endswitch
+    $isExternal = !in_array($platform, ['email', 'gmail']);
+@endphp
 
+<a href="{{ $url }}" target="{{ $isExternal ? '_blank' : '_self' }}" rel="noopener noreferrer"
+    aria-label="{{ $social->platform }}" title="{{ $social->platform }}"
+    class="group inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:bg-blue-50 hover:shadow-md">
+
+    <span class="relative flex h-5 w-5 items-center justify-center">
+        {{-- Fallback text kalau semua CDN gagal --}}
+        <span class="social-fallback hidden text-[10px] font-bold uppercase text-slate-600">
+            {{ strtoupper(substr($social->platform, 0, 2)) }}
+        </span>
+
+        {{-- Image icon --}}
+        <img src="{{ $iconSources[0] }}" alt="{{ $social->platform }}" loading="lazy"
+            class="social-icon h-5 w-5 object-contain opacity-80 transition duration-300 group-hover:opacity-100"
+            data-fallbacks='@json($iconSources)'
+            onerror="
+                const fallbacks = JSON.parse(this.dataset.fallbacks || '[]');
+                const current = this.getAttribute('src');
+                const currentIndex = fallbacks.indexOf(current);
+
+                if (currentIndex !== -1 && currentIndex + 1 < fallbacks.length) {
+                    this.src = fallbacks[currentIndex + 1];
+                    return;
+                }
+
+                this.style.display='none';
+                const fallback = this.parentElement.querySelector('.social-fallback');
+                if (fallback) fallback.classList.remove('hidden');
+            ">
+    </span>
 </a>

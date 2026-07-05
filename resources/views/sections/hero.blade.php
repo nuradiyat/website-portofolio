@@ -18,12 +18,11 @@
             {{-- Left --}}
             <div data-aos="fade-right">
 
-                <span
-                    class="inline-flex items-center rounded-full bg-blue-100 px-5 py-2 text-sm font-semibold text-blue-600">
-
-                    👋 Welcome to My Portfolio
-
-                </span>
+                <div
+                    class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-4 py-1 text-xs font-medium text-slate-600 shadow-sm backdrop-blur-sm">
+                    <span class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+                    Available for work
+                </div>
 
                 <h1 class="mt-6 text-4xl font-extrabold leading-tight text-slate-900 sm:text-5xl lg:text-6xl">
 
@@ -67,13 +66,13 @@
                 </div>
 
                 {{-- Social --}}
-                <div class="mt-10 flex flex-wrap gap-4">
+                {{-- <div class="mt-10 flex flex-wrap gap-4">
 
                     @foreach ($socialMedia as $social)
                         <x-ui.social-link :social="$social" />
                     @endforeach
 
-                </div>
+                </div> --}}
 
             </div>
 
@@ -85,7 +84,7 @@
                     <div class="absolute inset-0 rounded-full bg-blue-600 blur-3xl opacity-20">
                     </div>
 
-                    <img src="{{ Storage::url($profile->photo) }}" alt="{{ $profile->full_name }}" loading="lazy"
+                    <img src="{{ Storage::url($profile->profile_photo) }}" alt="{{ $profile->full_name }}" loading="lazy"
                         class="relative h-80 w-80 rounded-full border-8 border-white object-cover shadow-2xl lg:h-[430px] lg:w-[430px]">
 
                 </div>

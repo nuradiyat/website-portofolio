@@ -1,7 +1,7 @@
 <section id="certificates" class="bg-white py-24">
     <div class="container mx-auto px-6">
 
-        <x-section-title title="Sertifikat & Pencapaian Kompetensi" subtitle="Sertifikat"
+        <x-section-title title="Certificates" subtitle="Professional Certifications & Achievements"
             description="Berikut adalah sertifikat yang saya miliki dari pelatihan, kursus, dan sertifikasi kompetensi." />
 
         @if ($certificates->isNotEmpty())

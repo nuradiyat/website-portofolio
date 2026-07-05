@@ -9,13 +9,17 @@ class ProfileSeeder extends Seeder
 {
     public function run(): void
     {
-        Profile::create([
-            'full_name' => 'Muhammad Nuradiyat',
-            'profession' => 'Web Developer',
-            'profile_photo' => 'profiles/profile.jpg',
-            'cv_file' => 'cv/muhammad-nuradiyat-cv.pdf',
-            'short_bio' => 'Web Developer yang berfokus pada Laravel, Filament, dan pengembangan aplikasi web modern.',
-            'about' => 'Saya merupakan mahasiswa yang memiliki ketertarikan pada pengembangan aplikasi web menggunakan Laravel, Filament, PHP, dan MySQL. Saya senang membangun aplikasi yang bersih, mudah digunakan, dan memiliki performa yang baik.',
-        ]);
+        Profile::updateOrCreate(
+            [
+                'full_name' => 'Muhammad Nuradiyat',
+            ],
+            [
+                'profession' => 'Web Developer',
+                'profile_photo' => 'profiles/profile.jpg',
+                'cv_file' => 'cv/muhammad-nuradiyat-cv.pdf',
+                'short_bio' => 'Membangun website dan aplikasi web yang modern, terstruktur, dan nyaman digunakan.',
+                'about' => 'Berfokus pada pengembangan website dan aplikasi web dari sisi tampilan hingga fungsionalitas, dengan pendekatan yang terstruktur, efisien, dan berorientasi pada kebutuhan pengguna. Menghadirkan solusi digital yang tidak hanya berjalan dengan baik, tetapi juga memiliki tampilan profesional, alur yang jelas, serta pengelolaan sistem yang rapi agar memberikan pengalaman yang nyaman dan nilai yang nyata.',
+            ]
+        );
     }
 }

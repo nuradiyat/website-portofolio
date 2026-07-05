@@ -13,23 +13,30 @@ class SocialMediaSeeder extends Seeder
 
             [
                 'platform' => 'GitHub',
-                'url' => 'https://github.com/username',
+                'url' => 'https://github.com/nuradiyat',
                 'icon' => 'github',
                 'display_order' => 1,
             ],
 
             [
                 'platform' => 'LinkedIn',
-                'url' => 'https://linkedin.com/in/username',
+                'url' => 'https://linkedin.com/in/muhammadnuradiyat',
                 'icon' => 'linkedin',
                 'display_order' => 2,
             ],
 
             [
-                'platform' => 'Instagram',
-                'url' => 'https://instagram.com/username',
-                'icon' => 'instagram',
+                'platform' => 'WhatsApp',
+                'url' => 'https://wa.me/6289507922897',
+                'icon' => 'whatsapp ',
                 'display_order' => 3,
+            ],
+
+            [
+                'platform' => 'Instagram',
+                'url' => 'https://instagram.com/mnuradiyat',
+                'icon' => 'instagram',
+                'display_order' => 4,
             ],
 
         ]);

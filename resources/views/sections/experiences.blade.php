@@ -1,7 +1,7 @@
 <section id="experiences" class="bg-white py-24">
     <div class="container mx-auto px-6">
 
-        <x-section-title title="Experiences" subtitle="Professional & Organizational Journey"
+        <x-section-title title="Experience" subtitle="Professional & Organizational Journey"
             description="Berikut adalah pengalaman profesional maupun organisasi yang pernah saya jalani." />
 
         @if ($experiences->isNotEmpty())
