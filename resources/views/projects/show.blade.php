@@ -85,17 +85,23 @@
                             @if (!empty($project->features) && is_array($project->features))
                                 <div class="mt-5 grid gap-4 sm:grid-cols-2">
                                     @foreach ($project->features as $feature)
-                                        <div
-                                            class="flex items-start gap-3 rounded-2xl border border-slate-200 bg-white p-4">
-                                            <div
-                                                class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600">
-                                                <x-heroicon-o-check class="h-4 w-4" />
-                                            </div>
+                                        @php
+                                            $featureText = is_array($feature) ? $feature['value'] ?? null : $feature;
+                                        @endphp
 
-                                            <p class="text-sm leading-7 text-slate-600">
-                                                {{ $feature }}
-                                            </p>
-                                        </div>
+                                        @if (filled($featureText))
+                                            <div
+                                                class="flex items-start gap-3 rounded-2xl border border-slate-200 bg-white p-4">
+                                                <div
+                                                    class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600">
+                                                    <x-heroicon-o-check class="h-4 w-4" />
+                                                </div>
+
+                                                <p class="text-sm leading-7 text-slate-600">
+                                                    {{ $featureText }}
+                                                </p>
+                                            </div>
+                                        @endif
                                     @endforeach
                                 </div>
                             @else
@@ -221,7 +227,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                     </div>
                 </aside>
             </div>

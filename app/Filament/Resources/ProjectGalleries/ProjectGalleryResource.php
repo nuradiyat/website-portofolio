@@ -13,14 +13,24 @@ use App\Models\ProjectGallery;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class ProjectGalleryResource extends Resource
 {
     protected static ?string $model = ProjectGallery::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-photo';
+
+    protected static ?string $navigationLabel = 'Project Galleries';
+
+    protected static ?string $modelLabel = 'Project Gallery';
+
+    protected static ?string $pluralModelLabel = 'Project Galleries';
+
+    protected static string|UnitEnum|null $navigationGroup = 'Portofolio & Karier';
+
+    protected static ?int $navigationSort = 6;
 
     public static function form(Schema $schema): Schema
     {
@@ -39,9 +49,7 @@ class ProjectGalleryResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array

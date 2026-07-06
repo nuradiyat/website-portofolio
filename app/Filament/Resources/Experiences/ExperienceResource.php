@@ -9,18 +9,29 @@ use App\Filament\Resources\Experiences\Pages\ViewExperience;
 use App\Filament\Resources\Experiences\Schemas\ExperienceForm;
 use App\Filament\Resources\Experiences\Schemas\ExperienceInfolist;
 use App\Filament\Resources\Experiences\Tables\ExperiencesTable;
+use App\Filament\Resources\Experiences\Tables\ExperienceTable;
 use App\Models\Experience;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class ExperienceResource extends Resource
 {
     protected static ?string $model = Experience::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-briefcase';
+
+    protected static ?string $navigationLabel = 'Experiences';
+
+    protected static ?string $modelLabel = 'Experience';
+
+    protected static ?string $pluralModelLabel = 'Experiences';
+
+    protected static string|UnitEnum|null $navigationGroup = 'Portofolio & Karier';
+
+    protected static ?int $navigationSort = 2;
 
     public static function form(Schema $schema): Schema
     {
@@ -39,9 +50,7 @@ class ExperienceResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array

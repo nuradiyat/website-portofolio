@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('full_name');
             $table->string('profession');
             $table->string('profile_photo')->nullable();
+            $table->string('logo_website')->nullable();
             $table->string('cv_file')->nullable();
             $table->text('short_bio');
             $table->longText('about');

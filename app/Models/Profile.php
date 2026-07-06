@@ -14,6 +14,7 @@ class Profile extends Model
         'full_name',
         'profession',
         'profile_photo',
+        'logo_website',
         'cv_file',
         'short_bio',
         'about',
