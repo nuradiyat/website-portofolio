@@ -10,27 +10,29 @@ class SkillSeeder extends Seeder
     public function run(): void
     {
         $skills = [
+            // Programming Language
+            ['name' => 'HTML', 'category' => 'Programming Language', 'icon' => 'html5'],
+            ['name' => 'CSS', 'category' => 'Programming Language', 'icon' => 'css3'],
+            ['name' => 'JavaScript', 'category' => 'Programming Language', 'icon' => 'javascript'],
+            ['name' => 'PHP', 'category' => 'Programming Language', 'icon' => 'php'],
+            ['name' => 'Python', 'category' => 'Programming Language', 'icon' => 'python'],
 
-            ['name' => 'HTML', 'category' => 'Programming Language'],
-            ['name' => 'CSS', 'category' => 'Programming Language'],
-            ['name' => 'JavaScript', 'category' => 'Programming Language'],
-            ['name' => 'PHP', 'category' => 'Programming Language'],
-            ['name' => 'Python', 'category' => 'Programming Language'],
+            // Framework / Library
+            ['name' => 'Laravel', 'category' => 'Framework', 'icon' => 'laravel'],
+            ['name' => 'Filament', 'category' => 'Framework', 'icon' => 'laravel'],
+            ['name' => 'Bootstrap', 'category' => 'Framework', 'icon' => 'bootstrap'],
+            ['name' => 'Tailwind CSS', 'category' => 'Framework', 'icon' => 'tailwindcss'],
 
-            ['name' => 'Laravel', 'category' => 'Framework'],
-            ['name' => 'Filament', 'category' => 'Framework'],
-            ['name' => 'Bootstrap', 'category' => 'Framework'],
-            ['name' => 'Tailwind CSS', 'category' => 'Framework'],
+            // Database
+            ['name' => 'MySQL', 'category' => 'Database', 'icon' => 'mysql'],
 
-            ['name' => 'MySQL', 'category' => 'Database'],
-
-            ['name' => 'Git', 'category' => 'Tools'],
-            ['name' => 'GitHub', 'category' => 'Tools'],
-            ['name' => 'Docker', 'category' => 'Tools'],
-            ['name' => 'Postman', 'category' => 'Tools'],
-            ['name' => 'Figma', 'category' => 'Tools'],
-            ['name' => 'VS Code', 'category' => 'Tools'],
-
+            // Tools
+            ['name' => 'Git', 'category' => 'Tools', 'icon' => 'git'],
+            ['name' => 'GitHub', 'category' => 'Tools', 'icon' => 'github'],
+            ['name' => 'Docker', 'category' => 'Tools', 'icon' => 'docker'],
+            ['name' => 'Postman', 'category' => 'Tools', 'icon' => 'postman'],
+            ['name' => 'Figma', 'category' => 'Tools', 'icon' => 'figma'],
+            ['name' => 'VS Code', 'category' => 'Tools', 'icon' => 'visualstudiocode'],
         ];
 
         foreach ($skills as $skill) {

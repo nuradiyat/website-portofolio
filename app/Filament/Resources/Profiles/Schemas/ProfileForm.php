@@ -33,20 +33,21 @@ class ProfileForm
                             ->label('Bio Singkat')
                             ->required()
                             ->rows(4)
+                            ->autosize()
+                            ->maxLength(500)
+                            ->placeholder('Tulis ringkasan singkat tentang diri Anda, keahlian utama, atau fokus bidang yang ditekuni.')
+                            ->helperText('Bio singkat ini akan tampil pada bagian hero / ringkasan profil.')
                             ->columnSpanFull(),
 
-                        RichEditor::make('about')
+                        Textarea::make('about')
                             ->label('Tentang Saya')
                             ->required()
-                            ->columnSpanFull()
-                            ->toolbarButtons([
-                                'bold',
-                                'italic',
-                                'bulletList',
-                                'orderedList',
-                                'undo',
-                                'redo',
-                            ])
+                            ->rows(8)
+                            ->autosize()
+                            ->maxLength(65535)
+                            ->placeholder("Tulis deskripsi lengkap tentang diri Anda.\n\nContoh:\nSaya adalah mahasiswa IT yang berfokus pada pengembangan website menggunakan Laravel, Filament, dan Tailwind CSS.\n\nSaya juga tertarik pada backend development, UI website, dan pengelolaan database.")
+                            ->helperText('Gunakan Enter untuk membuat paragraf baru. Tidak perlu menulis tag HTML seperti <p> atau <br>.')
+                            ->columnSpanFull(),
                     ])
                     ->columns(2),
 
@@ -70,7 +71,7 @@ class ProfileForm
                             ->directory('profiles/cv')
                             ->visibility('public')
                             ->acceptedFileTypes(['application/pdf'])
-                            ->maxSize(5120) // 5 MB
+                            ->maxSize(5120)
                             ->nullable()
                             ->helperText('Format PDF. Maksimal 5 MB.'),
                     ])

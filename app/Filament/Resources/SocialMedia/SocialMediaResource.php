@@ -15,12 +15,23 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class SocialMediaResource extends Resource
 {
     protected static ?string $model = SocialMedia::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedGlobeAlt;
+
+    protected static ?string $navigationLabel = 'Social Media';
+
+    protected static ?string $modelLabel = 'Social Media';
+
+    protected static ?string $pluralModelLabel = 'Social Media';
+
+    protected static string|UnitEnum|null $navigationGroup = 'Manajemen Portofolio';
+
+    protected static ?int $navigationSort = 2;
 
     public static function form(Schema $schema): Schema
     {
