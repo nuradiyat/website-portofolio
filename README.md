@@ -7,7 +7,13 @@ You're ready to go! Visit the url in your browser, and login with:
 -   **Username:** admin@gmail.com
 -   **Password:** admin
 
+## Dashboard
+
 ![Filament Demo](https://drive.google.com/uc?export=view&id=1YjuM7nXwh686NTP0yqa1vAmGUVsjJKe9)
+
+## Website
+
+![Preview Portfolio](https://drive.google.com/uc?export=view&id=1B7PafCByd0NDaxXmId5mNIKHaRa3eVjt)
 
 ## Installation
 

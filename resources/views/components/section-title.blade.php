@@ -1,17 +1,13 @@
 @props(['title', 'subtitle' => null])
 
-<div class="max-w-3xl mx-auto text-center mb-16">
+<div class="mx-auto mb-12 max-w-3xl text-center sm:mb-14 lg:mb-16">
 
-    <span class="text-blue-600 font-semibold uppercase tracking-widest">
-
+    <span class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600 sm:text-sm md:text-base">
         {{ $title }}
-
     </span>
 
-    <h2 class="mt-3 text-3xl md:text-4xl font-bold text-slate-900">
-
+    <h2 class="mt-3 text-2xl font-bold leading-tight text-slate-900 sm:mt-4 sm:text-3xl md:text-4xl lg:text-5xl">
         {{ $subtitle }}
-
     </h2>
 
 </div>
