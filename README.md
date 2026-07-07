@@ -7,8 +7,7 @@ You're ready to go! Visit the url in your browser, and login with:
 -   **Username:** admin@gmail.com
 -   **Password:** admin
 
-
-![Filament Demo](https://drive.google.com/file/d/1YjuM7nXwh686NTP0yqa1vAmGUVsjJKe9/view?usp=sharing)
+![Filament Demo](https://drive.google.com/uc?export=view&id=1YjuM7nXwh686NTP0yqa1vAmGUVsjJKe9)
 
 ## Installation
 
