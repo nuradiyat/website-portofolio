@@ -12,10 +12,10 @@ return new class extends Migration
             $table->id();
             $table->string('ip_address', 45)->nullable()->index();
             $table->text('user_agent')->nullable();
-            $table->timestamp('visited_at')->index();
+            $table->date('visit_date')->index(); // tanggal kunjungan unik per hari
             $table->timestamps();
-            // mencegah 1 IP tersimpan lebih dari sekali di tanggal yang sama
-            $table->unique(['ip_address', 'visited_at']);
+
+            $table->unique(['ip_address', 'visit_date']);
         });
     }
 

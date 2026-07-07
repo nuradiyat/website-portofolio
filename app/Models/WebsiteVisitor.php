@@ -9,10 +9,10 @@ class WebsiteVisitor extends Model
     protected $fillable = [
         'ip_address',
         'user_agent',
-        'visited_at',
+        'visit_date',
     ];
 
     protected $casts = [
-        'visited_at' => 'datetime',
+        'visit_date' => 'date',
     ];
 }
