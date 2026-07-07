@@ -4,8 +4,8 @@
 <head>
     @include('partials.meta')
     @if ($profile?->logo_website)
-        <link rel="icon" type="image/png" href="{{ asset('storage/' . $profile->logo_website) }}">
-        <link rel="apple-touch-icon" href="{{ asset('storage/' . $profile->logo_website) }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ Storage::url($profile->logo_website) }}">
+        <link rel="apple-touch-icon" href="{{ Storage::url($profile->logo_website) }}">
     @endif
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('styles')

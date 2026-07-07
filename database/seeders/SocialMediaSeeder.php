@@ -32,11 +32,19 @@ class SocialMediaSeeder extends Seeder
                 'display_order' => 3,
             ],
 
+            // email
+            [
+                'platform' => 'Email',
+                'url' => 'mailto:nuradiyat@gmail.com',
+                'icon' => 'email',
+                'display_order' => 4,
+            ],
+
             [
                 'platform' => 'Instagram',
                 'url' => 'https://instagram.com/mnuradiyat',
                 'icon' => 'instagram',
-                'display_order' => 4,
+                'display_order' => 5,
             ],
 
         ]);

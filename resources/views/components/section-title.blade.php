@@ -6,7 +6,7 @@
         {{ $title }}
     </span>
 
-    <h2 class="mt-3 text-2xl font-bold leading-tight text-slate-900 sm:mt-4 sm:text-3xl md:text-4xl lg:text-5xl">
+    <h2 class="mt-3 text-2xl font-bold leading-tight text-slate-900 sm:mt-4 sm:text-3xl md:text-3xl lg:text-4xl">
         {{ $subtitle }}
     </h2>
 
