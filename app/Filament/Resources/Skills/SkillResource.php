@@ -29,9 +29,9 @@ class SkillResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Skills';
 
-    protected static string|UnitEnum|null $navigationGroup = 'Portfolio Management';
+    protected static string|UnitEnum|null $navigationGroup = 'Profiel Website';
 
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 3;
 
     public static function form(Schema $schema): Schema
     {

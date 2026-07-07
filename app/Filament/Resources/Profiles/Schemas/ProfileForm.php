@@ -65,6 +65,18 @@ class ProfileForm
                             ->nullable()
                             ->helperText('Format JPG, JPEG, PNG, WEBP. Maksimal 2 MB.'),
 
+                        FileUpload::make('logo_website')
+                            ->label('Logo Website')
+                            ->image()
+                            ->disk('public')
+                            ->directory('profiles/logos')
+                            ->visibility('public')
+                            ->imagePreviewHeight('180')
+                            ->maxSize(2048) // 2 MB
+                            ->nullable()
+                            ->helperText('Format JPG, JPEG, PNG, WEBP. Maksimal 2 MB.'),
+                            
+
                         FileUpload::make('cv_file')
                             ->label('File CV')
                             ->disk('public')

@@ -27,7 +27,7 @@ class ProfileResource extends Resource
     protected static ?string $modelLabel = 'Profil';
     protected static ?string $pluralModelLabel = 'Profil';
     // protected static string|UnitEnum|null $navigationGroup = 'Profil Website';
-    protected static string|UnitEnum|null $navigationGroup = 'Pengaturan Website';
+    protected static string|UnitEnum|null $navigationGroup = 'Profiel Website';
     protected static ?int $navigationSort = 1;
 
     public static function form(Schema $schema): Schema

@@ -18,10 +18,18 @@
 
         {{-- LOGO --}}
         <a href="{{ route('home') }}" class="flex min-w-0 items-center gap-3 group">
-            <div
-                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white font-bold shadow-sm transition group-hover:scale-105">
-                MN
-            </div>
+            @if ($profile?->logo_website)
+                <div
+                    class="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition group-hover:scale-105">
+                    <img src="{{ asset('storage/' . $profile->logo_website) }}"
+                        alt="{{ $profile->full_name ?? 'Logo Website' }}" class="h-full w-full object-contain">
+                </div>
+            @else
+                <div
+                    class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white font-bold shadow-sm transition group-hover:scale-105">
+                    MN
+                </div>
+            @endif
 
             <div class="hidden min-w-0 sm:block">
                 <h1 class="truncate text-base font-bold text-slate-900">

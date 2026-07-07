@@ -56,7 +56,7 @@
                     Masa Berlaku
                 </p>
                 <p class="mt-1.5 text-sm font-medium text-slate-800">
-                    {{ $certificate->expired_at ? $certificate->expired_at->format('d M Y') : 'Tidak dicantumkan' }}
+                    {{ $certificate->expired_at ? $certificate->expired_at->format('d M Y') : '-' }}
                 </p>
             </div>
         </div>

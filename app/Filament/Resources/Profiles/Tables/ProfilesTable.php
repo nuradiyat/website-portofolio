@@ -21,6 +21,11 @@ class ProfilesTable
                     ->label('Foto')
                     ->disk('public')
                     ->circular(),
+                
+                ImageColumn::make('logo_website')
+                    ->label('Logo')
+                    ->disk('public')
+                    ->circular(),
 
                 TextColumn::make('full_name')
                     ->label('Nama Lengkap')

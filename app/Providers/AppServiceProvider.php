@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Profile;
 use App\Models\SocialMedia;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -23,12 +24,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
-        View::share('profile', Profile::first());
+        View::share(
+            'profile',
+            Schema::hasTable('profiles')
+                ? Profile::query()->first()
+                : null
+        );
 
         View::share(
             'socialMedia',
-            SocialMedia::orderBy('display_order')->get()
+            Schema::hasTable('social_media')
+                ? SocialMedia::query()->orderBy('display_order')->get()
+                : collect()
         );
 
         Carbon::setLocale('id');

@@ -29,7 +29,7 @@ class SocialMediaResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Social Media';
 
-    protected static string|UnitEnum|null $navigationGroup = 'Manajemen Portofolio';
+    protected static string|UnitEnum|null $navigationGroup = 'Profiel Website';
 
     protected static ?int $navigationSort = 2;
 

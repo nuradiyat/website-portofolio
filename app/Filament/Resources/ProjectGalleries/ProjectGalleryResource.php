@@ -28,9 +28,9 @@ class ProjectGalleryResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Project Galleries';
 
-    protected static string|UnitEnum|null $navigationGroup = 'Portofolio & Karier';
+    protected static string|UnitEnum|null $navigationGroup = 'Showcase';
 
-    protected static ?int $navigationSort = 6;
+    protected static ?int $navigationSort = 2;
 
     public static function form(Schema $schema): Schema
     {

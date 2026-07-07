@@ -29,9 +29,9 @@ class ProjectResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Projects';
 
-    protected static string|UnitEnum|null $navigationGroup = 'Portofolio & Karier';
+    protected static string|UnitEnum|null $navigationGroup = 'Showcase';
 
-    protected static ?int $navigationSort = 5;
+    protected static ?int $navigationSort = 1;
 
     public static function form(Schema $schema): Schema
     {

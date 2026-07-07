@@ -13,14 +13,24 @@ use App\Models\Testimonial;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class TestimonialResource extends Resource
 {
     protected static ?string $model = Testimonial::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-chat-bubble-left-right';
+
+    protected static ?string $navigationLabel = 'Testimonials';
+
+    protected static ?string $modelLabel = 'Testimonial';
+
+    protected static ?string $pluralModelLabel = 'Testimonials';
+
+    protected static string|UnitEnum|null $navigationGroup = 'Contact';
+
+    protected static ?int $navigationSort = 1;
 
     public static function form(Schema $schema): Schema
     {

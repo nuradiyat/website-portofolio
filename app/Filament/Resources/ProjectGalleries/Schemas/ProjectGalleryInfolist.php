@@ -13,22 +13,35 @@ class ProjectGalleryInfolist
     {
         return $schema
             ->components([
-                Section::make('Detail Gallery')
+                Section::make('Detail Gallery Project')
+                    ->description('Informasi gambar gallery yang terhubung dengan project.')
                     ->schema([
                         TextEntry::make('project.title')
-                            ->label('Project'),
+                            ->label('Project')
+                            ->badge()
+                            ->color('primary'),
+
+                        TextEntry::make('created_at')
+                            ->label('Dibuat Pada')
+                            ->dateTime('d M Y, H:i')
+                            ->placeholder('-'),
 
                         TextEntry::make('caption')
                             ->label('Caption')
-                            ->placeholder('-')
+                            ->placeholder('Tidak ada caption.')
                             ->columnSpanFull(),
 
                         ImageEntry::make('image')
-                            ->label('Gambar')
+                            ->label('Preview Gambar')
                             ->disk('public')
+                            ->height(320)
+                            ->extraImgAttributes([
+                                'class' => 'rounded-xl object-cover',
+                            ])
                             ->columnSpanFull(),
                     ])
-                    ->columns(2),
+                    ->columns(2)
+                    ->columnSpanFull(),
             ]);
     }
 }

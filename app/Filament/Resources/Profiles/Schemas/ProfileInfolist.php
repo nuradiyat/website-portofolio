@@ -23,6 +23,13 @@ class ProfileInfolist
                             ->defaultImageUrl('https://placehold.co/300x300/e2e8f0/64748b?text=No+Photo')
                             ->columnSpan(1),
 
+                        ImageEntry::make('logo_website')
+                            ->label('Logo Website')
+                            ->disk('public')
+                            ->circular()
+                            ->defaultImageUrl('https://placehold.co/300x300/e2e8f0/64748b?text=No+Logo')
+                            ->columnSpan(1),
+
                         TextEntry::make('full_name')
                             ->label('Nama Lengkap')
                             ->weight('bold'),
@@ -30,7 +37,7 @@ class ProfileInfolist
                         TextEntry::make('profession')
                             ->label('Profesi / Jabatan')
                             ->badge()
-                            ->color('primary'),
+                            ->color('primary'),  
 
                         TextEntry::make('cv_file')
                             ->label('File CV')
