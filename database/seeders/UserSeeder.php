@@ -14,11 +14,11 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::updateOrCreate(
-            ['email' => 'admin@gmail.com'],
+            ['email' => 'admin@mnuradiyatdev.com'],
             [
-                'name' => 'Nama Kamu lihat file seeder UserSeeder.php',
-                'email' => 'admin@gmail.com',
-                'password' => Hash::make('admin'),
+                'name' => 'Muhammad Nuradiyat',
+                'email' => 'admin@mnuradiyatdev.com',
+                'password' => Hash::make('@code'),
                 'email_verified_at' => now(),
             ]
         );
