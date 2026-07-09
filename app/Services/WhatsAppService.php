@@ -9,14 +9,11 @@ class WhatsAppService
 {
     public function sendMessage(string $target, string $message): bool
     {
-        $token = config('services.fonnte.token');
+        $token = config('contact.fonnte_token');
+        $target = $this->normalizePhoneNumber($target);
 
         if (!$token || !$target) {
-            Log::warning('WhatsApp not sent because token or target is missing.', [
-                'token_exists' => !empty($token),
-                'target' => $target,
-            ]);
-
+            Log::warning('WhatsApp target or token missing.');
             return false;
         }
 
@@ -32,16 +29,10 @@ class WhatsAppService
                     'countryCode' => '62',
                 ]);
 
-            Log::info('Fonnte response', [
-                'target' => $target,
-                'status' => $response->status(),
-                'body' => $response->json() ?? $response->body(),
-            ]);
-
             if (!$response->successful()) {
                 Log::error('Failed to send WhatsApp notification.', [
                     'status' => $response->status(),
-                    'body' => $response->body(),
+                    'target' => $target,
                 ]);
 
                 return false;
@@ -56,5 +47,16 @@ class WhatsAppService
 
             return false;
         }
+    }
+
+    private function normalizePhoneNumber(string $number): string
+    {
+        $number = preg_replace('/\D+/', '', trim($number));
+
+        if (str_starts_with($number, '0')) {
+            $number = '62' . substr($number, 1);
+        }
+
+        return $number;
     }
 }

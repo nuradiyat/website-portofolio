@@ -27,4 +27,6 @@ Route::get('/experiences/{experience}', [ExperienceController::class, 'show'])->
 Route::get('/testimonials', [TestimonialController::class, 'index'])->name('testimonials');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/contact', [ContactController::class, 'store'])
+    ->middleware('throttle:5,1')
+    ->name('contact.store');
